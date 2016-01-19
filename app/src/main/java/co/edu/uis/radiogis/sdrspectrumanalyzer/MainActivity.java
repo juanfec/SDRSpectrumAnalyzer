@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         TabHost.TabSpec tab1 = TbH.newTabSpec("tab1");  //aspectos de cada Tab (pestaña)
         TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
 
-        tab1.setIndicator("",res.getDrawable(android.R.drawable.ic_menu_edit));    //qué queremos que aparezca en las pestañas
+        tab1.setIndicator("Control");    //qué queremos que aparezca en las pestañas
         tab1.setContent(R.id.control); //definimos el id de cada Tab (pestaña)
 
-        tab2.setIndicator("",res.getDrawable(android.R.drawable.ic_menu_gallery));
+        tab2.setIndicator("Grafica");
         tab2.setContent(R.id.grafica);
 
         TbH.addTab(tab1); //añadimos los tabs ya programados
