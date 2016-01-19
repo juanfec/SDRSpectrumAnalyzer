@@ -2,4 +2,24 @@
     <string name="app_name">SDRSpectrumAnalyzer</string>
     <string name="action_settings">Settings</string>
     <string name="cambiarip">Cambiarip</string>
+    <string-array name="base_spinner">
+        <item>Exponencial Compleja</item>
+        <item>Triangular</item>
+        <item>Potencia</item>
+        <item>Binomial</item>
+    </string-array>
+    <string-array name="ventana_spinner">
+        <item>Bartlett</item>
+        <item>Blackman</item>
+        <item>Blackman Harris</item>
+        <item>Flat top</item>
+        <item>Hamming</item>
+        <item>Hanning</item>
+        <item>Kaiser</item>
+        <item>Rectangular</item>
+    </string-array>
+    <string-array name="escala_spinner">
+    <item>dBm</item>
+    <item>Hz</item>
+    </string-array>
 </resources>

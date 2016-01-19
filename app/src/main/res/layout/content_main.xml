@@ -1,61 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
 
     <TabHost
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tabHost"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_main" tools:context=".MainActivity">>
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TabWidget
                 android:id="@android:id/tabs"
-                android:layout_width="fill_parent"
-                android:layout_height="37dp"
-                android:orientation="vertical"></TabWidget>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:id="@+id/control"
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    android:id="@+id/control"
+                    android:orientation="vertical" >
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="Control aca"/>
+                        android:orientation="horizontal"
+                        android:baselineAligned="false"
+                        android:layout_weight="0.0000001">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".5"
+                            android:paddingBottom="35dp">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="Frecuencia central"
+                                android:id="@+id/frb"
+                                android:layout_below="@+id/linearLayout"
+                                android:layout_centerHorizontal="true"
+                                android:onClick="fr"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center" />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="SPAN"
+                                android:id="@+id/spanb"
+                                android:layout_below="@+id/linearLayout"
+                                android:layout_centerHorizontal="true"
+                                android:onClick="span"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center" />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="Ganancia"
+                                android:id="@+id/gananciab"
+                                android:layout_below="@+id/linearLayout"
+                                android:layout_centerHorizontal="true"
+                                android:onClick="ganancia"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center" />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="Ventana"
+                                android:id="@+id/ventanab"
+                                android:layout_below="@+id/linearLayout"
+                                android:layout_centerHorizontal="true"
+                                android:onClick="ventana"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center" />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="Base"
+                                android:id="@+id/baseb"
+                                android:layout_below="@+id/linearLayout"
+                                android:layout_centerHorizontal="true"
+                                android:onClick="base"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center" />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="Escala"
+                                android:id="@+id/escalab"
+                                android:layout_below="@+id/linearLayout"
+                                android:layout_centerHorizontal="true"
+                                android:onClick="escala"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingBottom="35dp"
+                            android:layout_weight=".5">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:inputType="number"
+                                android:ems="10"
+                                android:id="@+id/fr"
+                                android:layout_weight="1" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:inputType="number"
+                                android:ems="10"
+                                android:id="@+id/span"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:inputType="number"
+                                android:ems="10"
+                                android:id="@+id/ganancia"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/ventana"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/base"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/escala"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.0000001"
+                        android:layout_gravity="top">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Iniciar"
+                            android:onClick="inicia"
+                            android:id="@+id/button"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/grafica"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grafica aca"/>
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="grafica"
+                        android:id="@+id/textView2" />
                 </LinearLayout>
 
             </FrameLayout>
         </LinearLayout>
     </TabHost>
-
+</RelativeLayout>

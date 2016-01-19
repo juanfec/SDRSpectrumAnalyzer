@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SDRSpectrumAnalyzer</string>
+    <string name="action_settings">Settings</string>
+    <string name="cambiarip">Cambiarip</string>
+</resources>
