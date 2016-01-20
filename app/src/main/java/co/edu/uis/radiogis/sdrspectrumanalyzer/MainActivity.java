@@ -1,5 +1,7 @@
 package co.edu.uis.radiogis.sdrspectrumanalyzer;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     public Handler mHandler;
     private Socket socket;
-    private static final int SERVERPORT = 9999;
-    //TODO: ingresar la ip desde la interfaz de usuario
-    private static final String SERVER_IP = "192.168.0.51";
+    private int SERVERPORT = 9999;
+    private String SERVER_IP = "192.168.0.51";
     TabHost TbH;
+
 
 
 
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
        //TODO: poner la grafica en su lugar
 
+
+
+
     }
 
     @Override
@@ -98,11 +103,30 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_settings:
                 return true;
             case R.id.cambiarip:
+
+                final View addView = getLayoutInflater().inflate(R.layout.inputip, null);
+                final EditText editText = (EditText) addView.findViewById(R.id.ip);
+                final EditText editText2 = (EditText) addView.findViewById(R.id.puerto);
+                //TODO: implementar trycatch campos vacios
+                new AlertDialog.Builder(this).setTitle("Ingrese Ip y Puerto").setView(addView)
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                //addWord((TextView) addView.findViewById(R.id.title));
+                                SERVER_IP = editText.getText().toString();
+                                SERVERPORT = Integer.parseInt(editText2.getText().toString());
+                                Log.d("run", "ip " + SERVER_IP);
+                                Log.d("run", "puerto "+ SERVERPORT );
+
+                            }
+                        }).setNegativeButton("Cancelar", null).show();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 
     public void fr(View view) {
         EditText et = (EditText) findViewById(R.id.fr);
