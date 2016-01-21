@@ -9,10 +9,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -82,8 +84,9 @@ public class MainActivity extends AppCompatActivity {
         //se inicia tarea en segundo plano, esta controla la conexion de el socket
         new Thread(new ClientThread()).start();
 
-       //TODO: poner la grafica en su lugar
-
+       //TODO: ACCEDER A LA ULTIMA GRAFICA
+        WebView browser = (WebView) findViewById(R.id.webview);
+        browser.loadUrl("http://radiogis.uis.edu.co/sensores/medida/1092");
 
 
 
@@ -107,13 +110,22 @@ public class MainActivity extends AppCompatActivity {
                 final View addView = getLayoutInflater().inflate(R.layout.inputip, null);
                 final EditText editText = (EditText) addView.findViewById(R.id.ip);
                 final EditText editText2 = (EditText) addView.findViewById(R.id.puerto);
-                //TODO: implementar trycatch campos vacios
                 new AlertDialog.Builder(this).setTitle("Ingrese Ip y Puerto").setView(addView)
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 //addWord((TextView) addView.findViewById(R.id.title));
+
                                 SERVER_IP = editText.getText().toString();
-                                SERVERPORT = Integer.parseInt(editText2.getText().toString());
+                                if(TextUtils.isEmpty(SERVER_IP)) {
+                                    editText.setError("Introduce una ip valida");
+                                    return;
+                                }
+                                try {
+                                    SERVERPORT = Integer.parseInt(editText2.getText().toString());
+                                } catch (NumberFormatException e) {
+                                    return;
+                                }
+
                                 Log.d("run", "ip " + SERVER_IP);
                                 Log.d("run", "puerto "+ SERVERPORT );
 
